@@ -1,7 +1,7 @@
 import React from 'react'
 import { Image } from './styles'
-const ImgBox = () => {
-  return <Image />
+const ImgBox = ({ x, y }) => {
+  return <Image $initialX={x} $initialY={y} />
 }
 
 export default ImgBox
