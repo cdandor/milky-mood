@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import { Marginals } from "../../styles";
+import styled from 'styled-components'
+import { Marginals } from '../../styles'
 
 export const Footer = styled.footer`
   ${Marginals}
   bottom: 0;
   justify-content: space-between;
   padding: 15px;
-`;
+`
 
 export const H2 = styled.h2`
   font-size: 64px;
@@ -14,7 +14,7 @@ export const H2 = styled.h2`
   line-height: 0.7;
   margin: 0;
   padding: 15px;
-`;
+`
 
 export const H2Middle = styled(H2)`
   flex-grow: 1;
@@ -22,7 +22,7 @@ export const H2Middle = styled(H2)`
   text-align: center;
 
   &::after {
-    content: "";
+    content: '';
     background-color: #fbfbfb;
     display: block;
     position: absolute;
@@ -31,4 +31,4 @@ export const H2Middle = styled(H2)`
     right: 15px;
     top: 55%;
   }
-`;
+`

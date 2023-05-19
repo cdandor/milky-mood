@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle, css } from "styled-components";
+import styled, { createGlobalStyle, css } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
 body {
@@ -13,7 +13,7 @@ body {
     -webkit-font-smoothing: antialiased;
     font-family: 'Work Sans', Arial, Helvetica, sans-serif;
     font-weight: 500;
-}`;
+}`
 
 export const Marginals = css`
   box-sizing: border-box;
@@ -22,4 +22,4 @@ export const Marginals = css`
   position: fixed;
   width: 100vw;
   z-index: 1;
-`;
+`
