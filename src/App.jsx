@@ -1,8 +1,8 @@
-import { React, useState } from 'react'
-import { GlobalStyle, ImageContainer, Wrapper } from './styles'
+import React, { useState } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ImgBox from './components/ImgBox'
+import { GlobalStyle, ImageContainer, Wrapper } from './styles'
 //prettier-ignore
 const matrix = [
   [0,0], [1,0], [2,0], [3,0],
@@ -14,15 +14,37 @@ const matrix = [
 ]
 
 const App = () => {
+  const [distance, setDistance] = useState(1)
+
+  const easing = (num) => Math.pow(num, 3)
+
+  const calcDist = ([x, y]) => {
+    const center = [window.innerWidth / 2, window.innerHeight / 2]
+    const maxHypot = Math.hypot(center[0], center[1])
+    const hypot = Math.hypot(center[0] - x, center[1] - y)
+    const distance = hypot / maxHypot
+    const easeDist = easing(distance)
+    setDistance(easeDist)
+  }
+  const handleMove = ({ clientX, clientY }) => {
+    calcDist([clientX, clientY])
+  }
+  const handleTouch = ({ touches }) => {
+    calcDist([touches[0].clientX, touches[0].clientY])
+  }
+
   return (
     <>
       <GlobalStyle />
       <Header />
       <Footer />
-      <Wrapper>
-        <ImageContainer>
+      <Wrapper
+        onMouseMove={handleMove}
+        onTouchMove={handleTouch}
+        $color={Math.round(240 - distance * 40)}>
+        <ImageContainer $isTogether={distance < 0.001}>
           {matrix.map(([x, y], index) => (
-            <ImgBox key={index} x={x} y={y} />
+            <ImgBox key={index} x={x} y={y} percent={distance} />
           ))}
         </ImageContainer>
       </Wrapper>
