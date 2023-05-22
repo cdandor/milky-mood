@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle, css } from 'styled-components'
-
 export const GlobalStyle = createGlobalStyle`
 @keyframes glow {
     0%{
@@ -33,7 +32,7 @@ export const Marginals = css`
 `
 export const Wrapper = styled.section.attrs(({ $color }) => ({
   style: {
-    backgroundColor: `hsl(${$color}, 79%, 53%)`,
+    backgroundColor: `${$color}`,
   },
 }))`
   display: flex;

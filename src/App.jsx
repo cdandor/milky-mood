@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ImgBox from './components/ImgBox'
+import ColorPicker from './components/ColorPicker'
+
 import { GlobalStyle, ImageContainer, Wrapper } from './styles'
 //prettier-ignore
 const matrix = [
@@ -33,15 +35,18 @@ const App = () => {
     calcDist([touches[0].clientX, touches[0].clientY])
   }
 
+  const [bgColor, setBgColor] = useState('#ebafab')
+
   return (
     <>
       <GlobalStyle />
       <Header />
       <Footer />
+      <ColorPicker bgColor={bgColor} setBgColor={setBgColor} />
       <Wrapper
         onMouseMove={handleMove}
         onTouchMove={handleTouch}
-        $color={Math.round(240 - distance * 40)}>
+        $color={bgColor}>
         <ImageContainer $isTogether={distance < 0.001}>
           {matrix.map(([x, y], index) => (
             <ImgBox key={index} x={x} y={y} percent={distance} />
