@@ -11,8 +11,16 @@ export const Header = styled.header`
     padding: 15px;
   }
 `
-export const Logo = styled(LogoSVG)`
+export const Logo = styled(LogoSVG).attrs(({ $color }) => ({
+  style: {
+    fill: `${$color}`,
+  },
+}))`
   height: auto;
   max-width: 760px;
   width: 100%;
+
+  path {
+    fill: inherit;
+  }
 `

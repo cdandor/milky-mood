@@ -36,13 +36,18 @@ const App = () => {
   }
 
   const [bgColor, setBgColor] = useState('#ebafab')
-
+  const [textColor, setTextColor] = useState('#000')
   return (
     <>
       <GlobalStyle />
-      <Header />
-      <Footer />
-      <ColorPicker bgColor={bgColor} setBgColor={setBgColor} />
+      <Header textColor={textColor} />
+      <Footer textColor={textColor} />
+      <ColorPicker
+        bgColor={bgColor}
+        textColor={textColor}
+        setBgColor={setBgColor}
+        setTextColor={setTextColor}
+      />
       <Wrapper
         onMouseMove={handleMove}
         onTouchMove={handleTouch}
